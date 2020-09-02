@@ -1,0 +1,19 @@
+//Media queries setup in mixins
+@mixin grid-wrapper{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    grid-auto-rows:minmax(100px, auto);
+    grid-column-gap:5px;
+    grid-row-gap:1em;
+}
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}

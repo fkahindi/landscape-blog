@@ -1,0 +1,69 @@
+@import "partials/colors";
+@import "partials/visuals";
+@import "partials/layout";
+.group{
+    &:before{
+        content:'';
+        display:table;
+    }
+    &:after{
+        content:'';
+        display:table;
+        clear:both;
+    }
+}
+%box-sizing{
+    box-sizing:border-box;
+}
+%message{
+    border: 1px solid #C69; 
+    padding: 1em; 
+    color: #333;
+}
+.success{
+    @extend %message;
+    boder-color:green;
+}
+.warning{
+    @extend %message;
+    border-color:yellow;
+}
+.error{
+    @extend %message;
+    boder-color:red;
+}
+.grid-wrapper{@include grid-wrapper;}
+body{
+    font:16px/24px$font-stack;
+    color:$color-primary;
+    background-color:$background-white;
+    margin:0;
+}
+header{
+    grid-column:1/span 5;
+    grid-row:1;
+    background-color:cyan;
+} 
+footer{
+    grid-column:1/span 5;
+    grid-row:3;
+    background-color:magenta;
+}
+main{
+    grid-column:1/ span 5;
+    grid-row:2;
+    background-color:green;
+    @include for-tablet-portrait-up{
+        grid-column:3/span 5;
+        grid-row:2;
+    }
+}
+aside{
+    grid-column:3;
+    grid-row:2;
+    background-color:yellow;
+    @include for-tablet-portrait-up{
+        grid-column:1/span 2;
+        grid-row:2;
+    }
+}
