@@ -5,3 +5,5 @@ admin/installation
  admin/pre-installation
 # Ignore ckeditor
 admin/ckeditor
+#Ignore PHPMailer
+PHPMailer
