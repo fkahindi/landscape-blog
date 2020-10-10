@@ -1,9 +1,15 @@
-$font-stack:Helvetica,sans-serif;
-@mixin apply-border($size-border, $type-border, $color:grey, $radius:0){
+@mixin apply-border($size-border, $type-border:none, $color:grey, $radius:0){
     border: $size-border $type-border $color;
     border-radius:$radius;
 }
 @mixin box-shadow($border-radius, $shadows...){
     border-radius:$border-radius;
     box-shadow:$shadows;
+}
+%message{
+    padding: 1em; 
+    color: #333;
+}
+@mixin apply-headings{
+
 }

@@ -1,0 +1,88 @@
+.logo {
+  margin: 1em 0;
+  padding-left: 1em; }
+
+.form-error span {
+  width: 80%;
+  margin: 3px 0;
+  color: #D83D5A; }
+.form-error input {
+  border: 1px solid #D83D5A;
+  background: yellow;
+  background: rgba(255, 255, 0, 0.3); }
+
+.form-success span {
+  width: 80%;
+  margin: 3px 0;
+  color: #32CD32; }
+.form-success input {
+  border: 1px solid #32CD32; }
+
+.success {
+  color: #32CD32; }
+
+.red {
+  color: #ff0000; }
+
+.error {
+  border-color: #ff0000;
+  color: #ff0000; }
+
+h3 {
+  font-family: Helvetica;
+  font-size: 100%;
+  padding-left: 1em; }
+
+form {
+  background-color: #fafafa;
+  padding-left: 1em;
+  border: thin solid silver;
+  border-radius: 5px; }
+  @media (max-width: 599px) {
+    form {
+      max-width: 70%;
+      margin: 2em auto; } }
+  @media (min-width: 600px) {
+    form {
+      max-width: 400px;
+      margin: 3em auto; } }
+  form label {
+    display: block;
+    margin-top: 1em; }
+  form input {
+    display: block;
+    padding: 0.35em 5px; }
+    @media (min-width: 600px) {
+      form input {
+        padding: 0.45em 7px; } }
+  form input, form textarea {
+    width: 90%;
+    margin: 3px 0;
+    font-size: inherit;
+    border: thin solid silver;
+    border-radius: 5px; }
+  form input[type="submit"] {
+    margin: 2em 0;
+    padding: 0.65em;
+    background-color: #006400;
+    color: white;
+    border: 0 none green;
+    border-radius: 0;
+    cursor: pointer; }
+    form input[type="submit"]:hover {
+      background-color: green;
+      color: yellow; }
+  form input[type="checkbox"] {
+    display: inline;
+    width: 1em;
+    height: 1em;
+    margin-left: 0;
+    border: solid 1px silver;
+    cursor: pointer; }
+  form a {
+    text-decoration: none;
+    color: #1E90FF; }
+    form a:hover {
+      text-decoration: underline; }
+
+/*# sourceMappingURL=form.css.map */
