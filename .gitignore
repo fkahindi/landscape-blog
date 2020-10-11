@@ -1,8 +1,5 @@
 #Ignore SASS config files
 .sass-cache
-#Ignore installation and pre-installation folders in admin folder
-admin/installation
- admin/pre-installation
 # Ignore ckeditor
 admin/ckeditor
 #Ignore PHPMailer
