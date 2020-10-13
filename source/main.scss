@@ -75,17 +75,16 @@ footer, header, hgroup, menu, nav, section {
     padding:10px;
 }
 h1,h2,h3,h4{
-    font-family:$font-stack;
+    font-family:Verdana;
     padding:0.5em 0;
     color:#696969;
 }
 h1{
     font-size:2em;
-    margin:3em 0 2em 0;
 }
 h2{
     font-size:1.75em;
-    margin:3em 0 2em 0;
+    margin:2em 0;
 }
 h3,h4{
     font-size:1.25em;   
@@ -156,14 +155,14 @@ header{
         }  
     }
     &:hover{
-        background-color:rgb(240,250,240);
+        background-color:rgb(200,250,200);
     }
     a{
         text-decoration:none;
         padding:5px 10px;
         color:#006400;
         &:hover{
-            color:#9ACD32ye;
+            color:#20B2AA;
         }
     }
 }
@@ -260,19 +259,17 @@ footer{
     }
 }
 /* End of main page layout */
-
-#main-image{
-    img{
-        @include for-tablet-landscape-up{
-        height:300px;
-        }
-        @include for-desktop-up{
-            height:400px;
-        }
-        @include for-big-desktop-up{
-            min-height:500px;
-        }
+.main-image{
+    
+    margin: 1em auto;
+    @include for-tablet-landscape-up{
+        margin: 5px;
     }
+}
+.accreditation{
+    padding-bottom:1em;
+    font-family:Verdana;
+    font-size:0.5em;
 }
 .column{
     margin-top: 1.5em;

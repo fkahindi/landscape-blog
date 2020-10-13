@@ -8,29 +8,16 @@ include __DIR__ .'/admin/includes/admin_functions.php';
 <!DOCTYPE html>
 <html lan="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <?php include __DIR__ .'/components/head.php';?>
         <meta name="description" content="">
         <meta name="keywords" content="">
-        <meta name="author" content="Francis Kahindi">
         <title>The Beauty of Landscaping</title>
-        <link rel="stylesheet" href="styles/main.css">
+        <?php include __DIR__ .'/components/head-resources.php';?>
         <link rel="stylesheet" href="styles/slideshow.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="print" onload="this.media='all'; this.onload=null;"/>
     </head>
     <body>
     <section class="grid-wrapper">
-        <header>
-            <div class="flex-wrapper">
-                <nav class="topnav" id="pgTopnav"><?php include __DIR__ .'/components/nav-bar.php';?></nav>
-                
-                <div class="social-icons group"><?php include __DIR__ .'/components/social-icons-bar.php';?></div>
-            </div>
-        </header>
-        <div class="logobar">
-        <img src="resources/icons/logo.png" loading="lazy" alt="logo" style="max-width:152px;"/>
-        <a href="forms/services-form.php"><button><strong>Hire services</strong></button></a>
-        </div>
+        <?php include __DIR__ .'/components/header.php';?>
         <main>  
             <div class="slideshow-container">
                 <div class="mySlides fade">
@@ -41,13 +28,13 @@ include __DIR__ .'/admin/includes/admin_functions.php';
 
                 <div class="mySlides fade">
                   <div class="numbertext">2 / 3</div>
-                  <img src="images/stony.jpg" style="width:100%">
+                  <img src="images/stony.JPG" style="width:100%">
                   <div class="text">Our garden beautification is simple and welcoming. We design, plant and maintain the lawn area. </div>
                 </div>
 
                 <div class="mySlides fade">
                   <div class="numbertext">3 / 3</div>
-                  <img src="images/weeding.jpg" style="width:100%">
+                  <img src="images/weeding.JPG" style="width:100%">
                   <div class="text">Uprooting the unwanted grass gives the garden a welcoming and healthy look.</div>
                 </div>
 
@@ -62,38 +49,21 @@ include __DIR__ .'/admin/includes/admin_functions.php';
                   <span class="dot" onclick="currentSlide(2)"></span> 
                   <span class="dot" onclick="currentSlide(3)"></span> 
                 </div>
-            <!--
-            <div id="main-image" >
-                <h1>No garden is too hard to landscape </h1>
-                <figure>
-                <img src="images/4.jpeg" loading="lazy" alt="main image" width="90%"/>
-                <figcaption></figcaption>
-                </figure> 
-                <p>The rocky garden brings the feeling of being by sea side. Alovera plants grow wild on the coral cliffs along seaside in coastal regions. They can withstand salty sprays of ocean mist, heat and pushing wind. </p>
-            </div>
-            -->
+           
             <div class="flex-wrapper">
-                <div class="column">
-                    <img src="images/7.jpeg" loading="lazy" alt="" style="width:25%;"/> 
-                    <p>The rocky garden brings the feeling of being by sea side. Alovera plants grow wild on the coral cliffs along seaside in coastal regions. They can withstand salty sprays of ocean mist, heat and pushing wind. </p>
-                </div>
-                 <div class="column">
-                    <img src="images/1.jpeg" loading="lazy" alt="" style="width:25%;"/> 
-                    <p>The rocky garden brings the feeling of being by sea side. Alovera plants grow wild on the coral cliffs along seaside in coastal regions. They can withstand salty sprays of ocean mist, heat and pushing wind. </p>
-                </div>
-                 <div class="column">
-                    <img src="images/3.jpeg" loading="lazy" alt="" style="width:25%;"/> 
-                    <p>The rocky garden brings the feeling of being by sea side. Alovera plants grow wild on the coral cliffs along seaside in coastal regions. They can withstand salty sprays of ocean mist, heat and pushing wind. </p>
-                </div>
+                <?php foreach($published_post_ids as $post_id): ?>
+				<?php $post = getPostById($post_id['post_id']) ?>
+				<?php $post['author'] = getPostAuthorById($post['user_id'])?>
+				
+				<div class="column">				
+				<a href="templates/post.html.php?id=<?php echo $post_id['post_id'] ?>&title=<?php echo $post['post_slug'] ?>">
+				<?php echo (!empty($post['image'])? '<img src="'.$post['image'].'" loading="lazy" width=100 height=100 alt="'.(!empty($post['image_caption'])? $post['image_caption']:'').'" class="article-index-image">':'')?></a>
+                <?php echo getFirstParagraphPostById($post_id['post_id']) ?><a href="templates/post.html.php?id=<?php echo $post_id['post_id'] ?>&title=<?php echo $post['post_slug'] ?>">Read more...</a>
+				</div>
+				<?php endforeach; ?>
+                  
             </div>
-            <div class="flex-wrapper">
-                <div class="column">
-                    <h3>Moowing</h3>
-                </div>
-                <div class="column">
-                    <h3>Landscaping</h3>
-                </div>
-            </div>
+          
         </main>
         <aside>
             <div class="services">
@@ -106,7 +76,7 @@ include __DIR__ .'/admin/includes/admin_functions.php';
             </div>
             <div class="profile">
            <h3>Chilango Kiti</h3>
-            <img src="images/chilango.png" loading="lazy" alt="profile pic" width="100px" height="120px" class="profile-pic"/>
+            <img src="<?php echo BASE_URL ?>images/chilango.png" loading="lazy" alt="profile pic" width="100px" height="120px" class="profile-pic"/>
             <p>Interests: researching, watching movies,photography, swimming.
             About me: Having worked at vipingo Ridge Golf Course for years and having been trained by professional Greenkeepers from Germany and Ireland, I acquired requisite skills on golf course establishment and maintenance.  My passion for landscaping has made me the work enhancing the beauty of the Universe. </p>
             </div>

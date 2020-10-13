@@ -239,7 +239,7 @@ function createPost($request_values){
     $image_file_name = $_FILES['post_main_image']['name'];
     $image_file_temp_name = $_FILES['post_main_image']['tmp_name'];
     $image_file_size = $_FILES['post_main_image']['size'];
-    $file_ext_type = ['jpg','png','gif'];
+    $file_ext_type = ['jpg','jpeg','png','gif'];
     
 	if(!empty(getimagesize($image_file_temp_name))){
 		$target_file = '../resources/images/'.basename($image_file_name);
@@ -251,7 +251,7 @@ function createPost($request_values){
 			
 		/* Allow only .jpg, .png and .gif file formats */
 		}else if(!in_array($imageFileType,$file_ext_type)){
-			array_push($errors,'Sorry, only JPG, PNG or GIF files are allowed');
+			array_push($errors,'Sorry, only JPG, JPEG, PNG or GIF files are allowed');
 		}
 		if(!move_uploaded_file($image_file_temp_name, $target_file)){
 			array_push($errors, 'Post image could not be uploaded, if problem persists try publishing without the image.');
@@ -272,7 +272,7 @@ function createPost($request_values){
 	}
 	
 	/* If no errors in the form, insert posts */	
-	if(!$errors){
+	if(empty($errors)){
 		$query = "INSERT INTO `posts` (user_id, post_title, post_slug, post_body, meta_description, published, image,image_caption, created_at, metaphoned) VALUES($user_id, '$title', '$post_slug', '$body','$meta_description', $published, '$image_path','$image_caption', now(), '$sound')";
 		
 		$result = mysqli_query($conn, $query);
@@ -342,17 +342,13 @@ function updatePost($request_values){
 			$sound .= metaphone($word).' ';
 		}
 	}
-	//include __DIR__ .'/../../classes/ImageLoad.php';
+
     $image_file_name = $_FILES['post_main_image']['name'];
     $image_file_temp_name = $_FILES['post_main_image']['tmp_name'];
     $image_file_size = $_FILES['post_main_image']['size'];
     $file_size_limit = 500000;
-    $file_ext_type = ['jpg','png','gif'];
+    $file_ext_type = ['jpg','jpeg','png','gif'];
     $target_file = '../resources/images/'.basename($image_file_name);
-    
-    //$upload_file = new ImageLoad();
-    //$upload_file->isImageThere($image_file_temp_name,$target_file);
-    
     
     if(!empty(getimagesize($image_file_temp_name))){
         $target_file = '../resources/images/'.basename($image_file_name);
@@ -365,7 +361,7 @@ function updatePost($request_values){
         // Allow only .jpg, .png and .gif file formats 
         }
         if(!in_array($imageFileType,$file_ext_type)){
-            array_push($errors,'Sorry, only JPG, PNG or GIF files are allowed');
+            array_push($errors,'Sorry, only JPG, JPEG, PNG or GIF files are allowed');
         }
         if(!move_uploaded_file($image_file_temp_name,$target_file)){
             array_push($errors, 'Post image could not be uploaded, if problem persists try publishing without the image.');
@@ -377,7 +373,7 @@ function updatePost($request_values){
     }	
             
 	/* //Udate if there are no errors */
-	if(!$errors){
+	if(empty($errors)){
 		$query = "UPDATE `posts` SET post_title='$title', post_slug='$post_slug', post_body='$body', meta_description='$meta_description', published=$published, image='$image_path',image_caption='$image_caption', updated_at=now(), metaphoned='$sound' WHERE post_id=$post_id";
 		
 		/* //Attach topic to posts in post_topic table */

@@ -94,12 +94,11 @@ h1, h2, h3, h4 {
   color: #696969; }
 
 h1 {
-  font-size: 2em;
-  margin: 3em 0 2em 0; }
+  font-size: 2em; }
 
 h2 {
   font-size: 1.75em;
-  margin: 3em 0 2em 0; }
+  margin: 2em 0; }
 
 h3, h4 {
   font-size: 1.25em; }
@@ -164,13 +163,13 @@ header {
         text-align: right;
         padding-right: 20px; } }
   header:hover {
-    background-color: #f0faf0; }
+    background-color: #c8fac8; }
   header a {
     text-decoration: none;
     padding: 5px 10px;
     color: #006400; }
     header a:hover {
-      color: #9ACD32 ye; }
+      color: #20B2AA; }
 
 /* Managing responsive navigation */
 @media (max-width: 599px) {
@@ -255,15 +254,12 @@ footer {
       grid-row: 4; } }
 
 /* End of main page layout */
-@media (min-width: 768px) {
-  #main-image img {
-    height: 300px; } }
-@media (min-width: 992px) {
-  #main-image img {
-    height: 400px; } }
-@media (min-width: 1200px) {
-  #main-image img {
-    min-height: 500px; } }
+.main-image {
+  text-align: center; }
+
+.accreditation {
+  padding-bottom: 1em;
+  font-size: 0.5em; }
 
 .column {
   margin-top: 1.5em;

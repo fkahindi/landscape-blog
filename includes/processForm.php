@@ -544,7 +544,7 @@ function imageUpload(){
 			$errors['fileToUpload'] = 'Sorry, only JPG, JPEG, PNG or GIF files are allowed';
 							
 			/* Validate image size is 2MB or less */
-		}else if($_FILES['fileToUpload']['size']>2000000){
+		}else if($_FILES['fileToUpload']['size']>500000){
 			$uploadOk = 0;
 			$errors['fileToUpload'] = 'Sorry, image is too large';
 		}else{

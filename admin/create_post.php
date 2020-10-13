@@ -53,7 +53,7 @@
 						</div>
 						<div class="form-group form-group-lg">
 							<input type="file" name="post_main_image" placeholder="Select image">
-							<p><ul><li>Only images sizes of less than 0.5 Mb with formats .jpg, .png and .gif are allowed.</li></ul> </p>
+							<p><ul><li>Only images sizes of less than 0.5 Mb with formats .jpg, .jpeg, .png and .gif are allowed.</li></ul> </p>
 						
 						</div>
 						<div class="form-group form-group-lg">
