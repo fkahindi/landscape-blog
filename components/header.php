@@ -1,7 +1,6 @@
 <header>
     <div class="flex-wrapper">
-        <nav class="topnav" id="pgTopnav"><?php include __DIR__ .'/nav-bar.php';?></nav>
-        
+        <nav><?php include __DIR__ .'/nav-bar.php';?></nav>
         <div class="social-icons group"><?php include __DIR__ .'/social-icons-bar.php';?></div>
     </div>
 </header>

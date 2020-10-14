@@ -87,18 +87,32 @@ include __DIR__ .'/admin/includes/admin_functions.php';
             <?php include __DIR__ .'/components/footer-bar.php';?>
         </footer>
     </section>
-    <script>
-         function myFunction() {
-          var x = document.getElementById("pgTopnav");
-          if (x.className === "topnav") {
-            x.className += "responsive";
-          } else {
-            x.className = "topnav";
-          }
-        } 
-    </script>
+    <script src="resources/js/jquery-1.7.2.min.js"></script>
+    
     <script src="resources/js/slideshow.js"></script>
-    <script src="resources/js/jquery-3.4.0.min.js"></script>
-    <script src="resources/js/control-page.js"></script>
+    <script>
+        $('document').ready(function() {
+        $('#menu-btn').click(function() {
+            $('#menu-list').show();
+            $('#menu-btn').hide();
+            $('#close-btn').show();
+        });
+        $('#close-btn').click(function() {
+            $('#menu-list').hide();
+            $('#close-btn').hide();
+            $('#menu-btn').show();
+        });
+        window.onresize = function() {
+            if (document.documentElement.clientWidth > 598 || window.innerWidth > 615) {
+                $('#menu-btn').hide();
+                $('#close-btn').hide();
+                $('#menu-list').show();
+            } else {
+                $('#menu-btn').show();
+                $('#menu-list').hide();
+            }
+            }
+        });
+    </script>
     </body>
 </html>

@@ -1,312 +1,452 @@
 @import "partials/colors";
 @import "partials/visuals";
 @import "partials/layout";
-$font-stack:Helvetica,sans-serif;
-html,body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+$font-stack:Helvetica,
+sans-serif;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
 }
-*,*::before,*::after {
-	box-sizing: border-box;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
-.group{
-    &:before{
-        content:'';
-        display:table;
+
+.group {
+    &:before {
+        content: '';
+        display: table;
     }
-    &:after{
-        content:'';
-        display:table;
-        clear:both;
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
     }
 }
-.success{
+
+.success {
     @extend %message;
-    border-color:green;
+    border-color: green;
 }
-.warning{
+
+.warning {
     @extend %message;
-    border-color:yellow;
+    border-color: yellow;
 }
-.error{
-    border-color:$color-red;
-    color:$color-red;
+
+.error {
+    border-color: $color-red;
+    color: $color-red;
 }
-.red{
-    color:$color-red;
+
+.red {
+    color: $color-red;
 }
-.grid-wrapper{ 
+
+.grid-wrapper {
     @include grid-wrapper;
 }
-.flex-wrapper{
-    @include for-desktop-up{
+
+.flex-wrapper {
+    @include for-desktop-up {
         @include flex-wrapper;
     }
 }
-.align-left{
-    text-align:left;
+
+.align-left {
+    text-align: left;
 }
-.align-right{
-    text-align:right;
+
+.align-right {
+    text-align: right;
 }
-.align-center{
-    text-align:center;
+
+.align-center {
+    text-align: center;
 }
-.fa{
-    padding:10px;
+
+.fa {
+    padding: 10px;
 }
-h1,h2,h3,h4{
-    font-family:Verdana;
-    padding:0.5em 0;
-    color:#696969;
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: Verdana;
+    padding: 0.5em 0;
+    color: #696969;
 }
-h1{
-    font-size:2em;
+
+h1 {
+    font-size: 2em;
 }
-h2{
-    font-size:1.75em;
-    margin:2em 0;
+
+h2 {
+    font-size: 1.75em;
+    margin: 2em 0;
 }
-h3,h4{
-    font-size:1.25em;   
+
+h3,
+h4 {
+    font-size: 1.25em;
 }
-p{
-    text-align:justify;
+
+p {
+    text-align: justify;
 }
+
+
 /*Main page layout */
-body{
-    font:16px/24px$font-stack;
-    color:$color-primary;
-    background-color:$background-white;
-    margin:0;
-    padding:0;
-    @include for-tablet-landscape-up{
-        padding:0 20px;
+
+body {
+    font: 16px/24px$font-stack;
+    color: $color-primary;
+    background-color: $background-white;
+    margin: 0;
+    padding: 0;
+    @include for-tablet-landscape-up {
+        padding: 0 20px;
     }
 }
-header{
-    position:sticky;
-    top:0;
-    grid-column:1/span 5;
-    grid-row:1;
-    background-color:#fff;
-    border-bottom:1px solid silver;
-    @include for-desktop-up{
-        grid-column:2/span 5;
-        grid-row:1;
-    }
-    nav{
-        max-width:60%;
-        display:inline-block;
-        float:left;
-        ul{
-            list-style-type:none;
-            @include for-phone-only{
-                display:none;
-            }
-            @include for-tablet-portrait-up{
-                li{
-                    display:inline-block;
-                    padding:10px 0.5em;
-                }
-                ul{
-                    display:none;
-                }  
-            }
-        }
-        @include for-desktop-up{
-            float:none;
-            flex:1 1 200px;
-        }
-    }
-    .social-icons{
-        float:right;
-        max-width:40%;
-        display:inline-block;
-        @include for-phone-only{
-            position:absolute;
-            right:10px;
-            top:10px;
-        }
-        @include for-desktop-up{
-            float:none;
-            flex:1 1 100px;
-            text-align:right;
-            padding-right:20px;
-        }  
-    }
-    &:hover{
-        background-color:rgb(200,250,200);
-    }
-    a{
-        text-decoration:none;
-        padding:5px 10px;
-        color:#006400;
-        &:hover{
-            color:#20B2AA;
-        }
-    }
-}
+
+
 /* Managing responsive navigation */
-.topnav a:not(:last-child){
-    @include for-phone-only{
-        display:none
+
+header {
+    position: sticky;
+    top: 0;
+    grid-column: 1/span 5;
+    grid-row: 1;
+    background-color: #fff;
+    border-bottom: 1px solid silver;
+    @include for-desktop-up {
+        grid-column: 2/span 5;
+        grid-row: 1;
+    }
+    &:hover {
+        background-color: #f3faf0;
+    }
+    a {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1em;
+        text-decoration: none;
+        padding: 5px 10px;
+        color: green;
+        &:hover {
+            color: yellowgreen;
+        }
+        @include for-phone-only {
+            color: whitesmoke;
+        }
     }
 }
-.topnav{
-    .responsive {
-        width:100%;
+
+nav {
+    max-width: 60%;
+    display: inline-block;
+    float: left;
+    @include for-desktop-up {
+        float: none;
+        flex: 1 1 200px;
+    }
+    ul {
+        width: 100%;
+        list-style-type: none;
+        padding: 10px;
+        @include for-phone-only {
+            padding-top: 0;
+        }
         li {
-            display: block;
-            position:relative;
-            top:2em;
-            text-align: left;
-            background-color:black;
-            ul{
-                display:none;
+            display: inline;
+            width: 100vw;
+            ul {
+                display: none;
+            }
+            &:active>ul {
+                display: block;
             }
         }
-        
-        
+        @include for-phone-only {
+            li {
+                display: block;
+                position: relative;
+                left: 0;
+                top: 1em;
+                background-color: rgb(22, 24, 24);
+                color: greenyellow;
+                padding: 1em;
+            }
+        }
     }
-    .icon{
+}
+
+.social-icons {
+    float: right;
+    max-width: 40%;
+    display: inline-block;
+    @include for-phone-only {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    @include for-desktop-up {
+        float: none;
+        flex: 1 1 100px;
+        text-align: right;
+        padding-right: 20px;
+    }
+}
+
+#menu-list {
+    @include for-phone-only {
+        display: none;
+        position: absolute;
+        top: 2em;
+        right: 0;
+        width: 100vw;
+    }
+}
+
+#close-btn {
+    display: none;
+    @include for-phone-only {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 2em;
+        color: #006400;
+    }
+}
+
+#menu-btn {
+    display: none;
+    @include for-phone-only {
         display: block;
         position: absolute;
-        left: 0;
-        top: 0;
-        font-size:24px;
-        @include for-tablet-portrait-up{
-            display:none;
-        }
+        top: 3px;
+        left: 3px;
+        font-size: 1.5em;
+        color: #006400;
     }
 }
-.logobar{
-    grid-column:1/span 5;
-    grid-row:2;
-    padding:0 1em;
-    @include for-desktop-up{
-        padding:2em 5%;
-        grid-column:1/span 5;
-        grid-row:1/span 2;
+
+.logobar {
+    grid-column: 1/span 5;
+    grid-row: 2;
+    padding: 0 1em;
+    @include for-desktop-up {
+        padding: 2em 5%;
+        grid-column: 1/span 5;
+        grid-row: 1/span 2;
     }
-    button{
-        float:right;
-        background-color:#006400;
-        color:white;
-        margin:5px auto;
-        padding:1em;
-        @include apply-border(0, none, green,10px);
-        cursor:pointer;
-        &:hover{
-            color:yellow;
-            background-color:green;
-            a{
-                text-decoration:none;
+    button {
+        float: right;
+        background-color: #006400;
+        color: white;
+        margin: 5px auto;
+        padding: 1em;
+        @include apply-border(0, none, green, 10px);
+        cursor: pointer;
+        &:hover {
+            color: yellow;
+            background-color: green;
+            a {
+                text-decoration: none;
             }
         }
-        @include for-desktop-up{
-            margin-top:2em;
+        @include for-desktop-up {
+            margin-top: 2em;
         }
     }
 }
-main{
-    grid-column:1/ span 5;
-    grid-row:3;
-    padding:10px;
-    @include for-tablet-landscape-up{
-        padding:0 32px;
-        grid-column:2/ span 5;
-        grid-row:3;
+
+main {
+    grid-column: 1/ span 5;
+    grid-row: 3;
+    padding: 10px;
+    @include for-tablet-landscape-up {
+        padding: 0 32px;
+        grid-column: 2/ span 5;
+        grid-row: 3;
     }
 }
-aside{
-    grid-column:1/ span 5;
-    grid-row:4;
-    padding:10px;
-    @include for-tablet-landscape-up{
-        grid-column:1;
-        grid-row:3;
-        padding-top:4em;
+
+aside {
+    grid-column: 1/ span 5;
+    grid-row: 4;
+    padding: 10px;
+    @include for-tablet-landscape-up {
+        grid-column: 1;
+        grid-row: 3;
+        padding-top: 4em;
     }
 }
-footer{
-    grid-column:1/span 5;
-    grid-row:5;
-    background-color:#000000;
-    color:#C0C0C0;
-    @include for-desktop-up{
-        grid-column:1/span 5;
-        grid-row:4;
+
+footer {
+    grid-column: 1/span 5;
+    grid-row: 5;
+    background-color: #000000;
+    color: #C0C0C0;
+    @include for-desktop-up {
+        grid-column: 1/span 5;
+        grid-row: 4;
     }
 }
+
+
 /* End of main page layout */
-.main-image{
-    
+
+.main-image {
     margin: 1em auto;
-    @include for-tablet-landscape-up{
+    @include for-tablet-landscape-up {
         margin: 5px;
     }
 }
-.accreditation{
-    padding-bottom:1em;
-    font-family:Verdana;
-    font-size:0.5em;
+
+.accreditation {
+    padding-bottom: 1em;
+    font-family: Verdana;
+    font-size: 0.5em;
 }
-.column{
+
+.column {
     margin-top: 1.5em;
-    -ms-flex:100%;
-    flex:100%;
-    max-width:100%;
-    @include apply-border(thin,solid,silver);
-    @include box-shadow(5px,20px,20px, 20px,gray);
-    img{
-        float:left;
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+    @include apply-border(thin, solid, silver);
+    @include box-shadow(5px, 20px, 20px, 20px, gray);
+    img {
+        float: left;
         margin: 1em;
         vertical-align: middle;
     }
-    p{
-        padding:1em;
+    p {
+        padding: 1em;
     }
 }
-.services{
-    a{
-        display:block;
-        text-decoration:none;
-        padding:0;
-        line-height:1.2;
-        color:#008080;
-        &:hover{
-            text-decoration:underline;
-            color:#20B2AA;
-            padding-left:3px;
+
+.services {
+    a {
+        display: block;
+        text-decoration: none;
+        padding: 0;
+        line-height: 1.2;
+        color: #008080;
+        &:hover {
+            text-decoration: underline;
+            color: #20B2AA;
+            padding-left: 3px;
         }
     }
-    
 }
-.profile-pic{
-        float:left;
-        padding:1em;
-        @include for-phone-only{
-            float:none;
-            text-align:center;
-        }
+
+.profile-pic {
+    float: left;
+    padding: 1em;
+    @include for-phone-only {
+        float: none;
+        text-align: center;
+    }
 }
