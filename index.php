@@ -37,10 +37,8 @@ include __DIR__ .'/admin/includes/admin_functions.php';
                   <img src="images/weeding.jpg" style="width:100%">
                   <div class="text">Uprooting the unwanted grass gives the garden a welcoming and healthy look.</div>
                 </div>
-
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
             </div>
                 <br>
 
@@ -88,53 +86,71 @@ include __DIR__ .'/admin/includes/admin_functions.php';
         </footer>
     </section>
     <script src="resources/js/jquery-1.7.2.min.js"></script>
-    
+    <script src="resources/js/control-page.js"></script>
     <script src="resources/js/slideshow.js"></script>
     <script>
-        $('document').ready(function() {
-        $('#menu-btn').click(function() {
-            $('#menu-list').show();
-            $('#menu-btn').hide();
-            $('#close-btn').show();
-        });
-        $('#close-btn').click(function() {
-            $('#menu-list').hide();
-            $('#close-btn').hide();
-            $('#menu-btn').show();
-        });
-        window.onresize = function() {
-            if (document.documentElement.clientWidth > 598 || window.innerWidth > 615) {
-                $('#menu-btn').hide();
-                $('#close-btn').hide();
-                $('#menu-list').show();
-            } else {
-                $('#menu-btn').show();
-                $('#menu-list').hide();
-            }
-            }
-        });
-    </script>
-    <script>
-        var slideIndex = 0;
-        showSlides();
+    /* JS for pic slideshow */
+       var slideIndex = 1;
+        var myTimer;
+        var slideshowContainer;
+        window.addEventListener("load",function() {
+            showSlides(slideIndex);
+            myTimer = setInterval(function(){plusSlides(1)}, 4000);
+          
+            slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
+          
+             slideshowContainer = document.getElementsByClassName('slideshow-container')[0];
+          
+            slideshowContainer.addEventListener('mouseenter', pause)
+            slideshowContainer.addEventListener('mouseleave', resume)
+        })
 
-        function showSlides() {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("dot");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}    
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " active";
-        setTimeout(showSlides, 10000); // Change image every 10 seconds
+        function plusSlides(n){
+          clearInterval(myTimer);
+          if (n < 0){
+            showSlides(slideIndex -= 1);
+          } else {
+           showSlides(slideIndex += 1); 
+          }
+            
+          if (n === -1){
+            myTimer = setInterval(function(){plusSlides(n + 2)}, 4000);
+          } else {
+            myTimer = setInterval(function(){plusSlides(n + 1)}, 4000);
+          }
         }
 
+        function currentSlide(n){
+          clearInterval(myTimer);
+          myTimer = setInterval(function(){plusSlides(n + 1)}, 4000);
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n){
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+        }
+
+        pause = () => {
+          clearInterval(myTimer);
+        }
+
+        resume = () =>{
+          clearInterval(myTimer);
+          myTimer = setInterval(function(){plusSlides(slideIndex)}, 4000);
+        } 
     </script>
+    
     </body>
 </html>
