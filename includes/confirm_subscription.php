@@ -27,9 +27,10 @@ try{
 			$subscribeUser = new DatabaseTable($pdo, 'subscribers', 'email');
 			$query = $subscribeUser->insertRecord($fields);
 			
-			$sql = $subscribeTempTbl->deleteRecords($email);
+            $deleteEmail = new DatabaseTable($pdo, 'subscribe_temp_tbl','email');
+			$deleteEmail->deleteRecords($email);
 			echo '<h2>Subscription confirmed! </h2><br>';
-			echo '<h4>You will be notified when a new post is available.</h3><br>';
+			echo '<h4>You will be notified when a new post is available.</h4><br>';
 			echo '<p><a href="'.BASE_URL .'index.php">Continue</a></p>';
 		}else{
 			echo 'Token expired';

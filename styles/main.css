@@ -180,8 +180,7 @@ h1 {
   font-size: 2em; }
 
 h2 {
-  font-size: 1.75em;
-  margin: 2em 0; }
+  font-size: 1.75em; }
 
 h3,
 h4 {
@@ -189,6 +188,9 @@ h4 {
 
 p {
   text-align: justify; }
+
+a {
+  text-decoration: none; }
 
 /*Main page layout */
 body {
@@ -218,14 +220,10 @@ header {
   header a {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1em;
-    text-decoration: none;
     padding: 5px 10px;
-    color: green; }
+    color: #0e855d; }
     header a:hover {
       color: yellowgreen; }
-    @media (max-width: 599px) {
-      header a {
-        color: whitesmoke; } }
 
 nav {
   max-width: 60%;
@@ -241,23 +239,26 @@ nav {
     padding: 10px; }
     @media (max-width: 599px) {
       nav ul {
-        padding-top: 0; } }
+        padding-top: 0;
+        text-align: left; } }
     nav ul li {
       display: inline;
-      width: 100vw; }
+      width: 100%; }
       nav ul li ul {
         display: none; }
       nav ul li:active > ul {
         display: block; }
-    @media (max-width: 599px) {
-      nav ul li {
-        display: block;
-        position: relative;
-        left: 0;
-        top: 1em;
-        background-color: #161818;
-        color: greenyellow;
-        padding: 1em; } }
+      @media (max-width: 599px) {
+        nav ul li {
+          display: block;
+          position: relative;
+          left: 0;
+          top: 1em;
+          background-color: #0e855d;
+          padding: 0.5em; }
+          nav ul li a {
+            padding-left: 2em;
+            color: bisque; } }
 
 .social-icons {
   float: right;
@@ -290,8 +291,10 @@ nav {
       position: absolute;
       top: 0;
       left: 0;
-      font-size: 2em;
-      color: #006400; } }
+      padding: 0.25em;
+      font-size: 2em; }
+      #close-btn:hover {
+        background-color: #cbe090; } }
 
 #menu-btn {
   display: none; }
@@ -301,8 +304,10 @@ nav {
       position: absolute;
       top: 3px;
       left: 3px;
-      font-size: 1.5em;
-      color: #006400; } }
+      padding: 0.25em;
+      font-size: 1.5em; }
+      #menu-btn:hover {
+        background-color: #cbe090; } }
 
 .logobar {
   grid-column: 1/span 5;
@@ -349,7 +354,7 @@ aside {
     aside {
       grid-column: 1;
       grid-row: 3;
-      padding-top: 4em; } }
+      padding-top: 2em; } }
 
 footer {
   grid-column: 1/span 5;

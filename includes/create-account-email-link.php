@@ -10,7 +10,7 @@ key='.$token.'&email='.$email.'&action=subscribe" target="_blank">
 
 ** */
 /* For Local Server */
-$output.='<p><a href="/landscape/forms/set-account-password.html.php?key='.$token.'&email='.$email.'&username='.$username.'" target="_blank">
+$output.='<p><a href="/landscape/forms/set-account-password.php?key='.$token.'&email='.$email.'&username='.$username.'" target="_blank">
 Confirm account creation </a></p>';	
 	/* ----------- */
 $output.='<p>------------------------------------------------</p>';
@@ -24,7 +24,7 @@ $body = $output;
 $subject = "Account creation";
  
 $email_to = $email;
-$fromserver = "noreply@developerspot.co.ke"; 
+$fromserver = "noreply@vipingo-hills.co.ke"; 
 require __DIR__ .'/../../includes_appDir/EmailCredentials.php';
 require __DIR__ .'/../PHPMailer/PHPMailerAutoload.php';
 $mail = new PHPMailer();
@@ -45,6 +45,6 @@ $mail->AddAddress($email_to);
 if(!$mail->Send()){
 	$email_error = 'Message could not be sent. '.$mail->ErrorInfo;
 }else{
-$_SESSION['email_success'] = "<p>An email has been sent to ".$email.". You will need to open your  email and confirm  that you are the one creating the account.</p>";
+$_SESSION['email_success'] = "<p>&#128077; An email has been sent to ".$email.". You will need to open your  email and confirm  that you are the one creating the account.</p>";
 }
  

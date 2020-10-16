@@ -1,103 +1,109 @@
 @import "partials/layout";
 @import "partials/visuals";
 @import "partials/colors";
-.logo{
-    margin:1em 0;
-    padding-left:1em;
+.logo {
+    margin: 1em 0;
+    padding-left: 1em;
 }
-.form-error{
-    span{
+
+.form-error {
+    span {
         width: 80%;
         margin: 3px 0;
         color: #D83D5A;
     }
     input {
         border: 1px solid #D83D5A;
-        background:rgb(256,256,0);
-        background:rgba(256,256,0,0.3);
+        background: rgb(256, 256, 0);
+        background: rgba(256, 256, 0, 0.3);
     }
 }
 
-.form-success{
+.form-success {
     span {
         width: 80%;
         margin: 3px 0;
-        color: #32CD32;;
+        color: #17804f;
     }
     input {
-        border: 1px solid #32CD32;
+        border: 1px solid #17804f;
     }
-}
-.success{
-    color:#32CD32;
-}
-.red{
-    color:$color-red;
-}
-.error{
-    border-color:$color-red;
-    color:$color-red;
-}
-h3{
-    font-family:Helvetica;
-    font-size:100%;
-    padding-left:1em;
 }
 
-form{
-    background-color:rgb(250,250,250);
-    padding-left:1em;
+.success {
+    color: #17804f;
+}
+
+.red {
+    color: $color-red;
+}
+
+.error {
+    border-color: $color-red;
+    color: $color-red;
+}
+
+h3 {
+    font-family: Helvetica;
+    font-size: 100%;
+    padding-left: 1em;
+}
+
+form {
+    background-color: rgb(250, 250, 250);
+    padding-left: 1em;
     @include apply-border(thin, solid, silver, 5px);
-    @include for-phone-only{
-        max-width:70%;
-        margin:2em auto;
+    @include for-phone-only {
+        max-width: 70%;
+        margin: 2em auto;
     }
-    @include for-tablet-portrait-up{
-        max-width:400px;
-        margin:3em auto;
+    @include for-tablet-portrait-up {
+        max-width: 400px;
+        margin: 3em auto;
     }
-    label{
-        display:block;
-        margin-top:1em;
+    label {
+        display: block;
+        margin-top: 1em;
     }
-    input{
-        display:block;
-        padding:0.35em 5px;
-        @include for-tablet-portrait-up{
-            padding:0.45em 7px;
+    input {
+        padding: 0.35em 5px;
+        @include for-tablet-portrait-up {
+            padding: 0.45em 7px;
         }
     }
-    input,textarea{
-         width:90%;
-         margin:3px 0;
-         font-size:inherit;
-         @include apply-border(thin, solid, silver, 5px);
+    input,
+    textarea {
+        display: block;
+        width: 90%;
+        margin: 3px 0;
+        font-size: inherit;
+        @include apply-border(thin, solid, silver, 5px);
     }
-    input[type="submit"]{
-        margin:2em 0;
-        padding:0.65em;
-        background-color:#006400;
-        color:white;
-        @include apply-border(0,none,green);
-        cursor:pointer;
-        &:hover{
-            background-color:green;
-            color:yellow;
+    input[type="submit"] {
+        margin: 2em 0;
+        padding: 0.65em;
+        background-color: #006400;
+        color: white;
+        @include apply-border(0, none, green);
+        cursor: pointer;
+        &:hover {
+            background-color: green;
+            color: yellow;
         }
     }
-    input[type="checkbox"]{
-        display:inline;
-        width:1em;
-        height:1em;
-        margin-left:0;
-        border:solid 1px silver;
-        cursor:pointer;
+    input[type="checkbox"] {
+        display: inline;
+        width: 1em;
+        height: 1em;
+        margin-left: 0;
+        border: solid 1px silver;
+        cursor: pointer;
     }
-    a{
-        text-decoration:none;
-        color:#1E90FF;
-        &:hover{
-            text-decoration:underline;
+    a {
+        text-decoration: none;
+        color: #1E90FF;
+        &:hover {
+            text-decoration: underline;
         }
-        }
+    }
 }

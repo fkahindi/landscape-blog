@@ -10,9 +10,10 @@ key='.$token.'&email='.$email.'&action=subscribe" target="_blank">
 ** */
 
 /* For Local Server */
-$output.='<p><a href="localhost/landscape/forms/confirm-subscription.html.php?
+$output.='<p><a href="localhost/landscape/forms/confirm-subscription.php?
 key='.$token.'&email='.$email.'&action=subscribe" target="_blank">
-Confirm email subscription</a></p>';		
+Confirm email subscription</a></p>';
+/* --------------- */		
 $output.='<p>------------------------------------------------</p>';
 $output.='<p>The link will expire after 1 day for security reasons. Please, if the link does not work, copy and paste it on a new tab on your browser.
 </p>';
@@ -42,8 +43,8 @@ $mail->Subject = $subject;
 $mail->Body = $body;
 $mail->AddAddress($email_to);
 if(!$mail->Send()){
-	$email_error = '<div class="errorMsg"> Message could not be sent. Mailer Error: '. $mail->ErrorInfo .'</div>';
+	$email_error = '<div class="error"> Message could not be sent. Mailer Error : '. $mail->ErrorInfo .'</div>';
 }else{
-	echo '<script>$("#subscribe").addClass("hidden");$("#to-be-notified").addClass("hidden");</script>';
-	$emil_success = '<div class="successMsg">An email has been sent to your email box with instructions to confirm your subscription.</div>';
+	echo '<script>$("#subscribe-form").addClass("hidden");</script>';
+	$emil_success = '<div class="success">&#128077; An email has been sent to your email address with instructions to confirm your subscription.</div>';
 	}

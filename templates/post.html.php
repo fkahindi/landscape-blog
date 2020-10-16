@@ -21,7 +21,8 @@ if(!isset($_SESSION)){
     <?php include __DIR__ .'/../components/head.php';?>
     <title><?php echo htmlspecialchars_decode($posts['post_title']) ;?> </title>
 	<meta name="description" content="<?php echo (isset($posts['meta_description'])? htmlspecialchars_decode($posts['meta_description']):''); ?>" />
-	<?php include __DIR__ .'/../components/head-resources.php';?>
+    <?php include __DIR__ .'/../components/head-resources.php';?>
+    <link rel="stylesheet" href="../styles/subscribe-section.css" media="print" onload="this.media='all'; this.onload=null;">
 </head>
 <body>
    <section class="grid-wrapper">
@@ -40,6 +41,17 @@ if(!isset($_SESSION)){
                 <div class="main-article">
                 <!-- The page content will be fetched from database -->
                 <?php echo htmlspecialchars_decode($posts['post_body']) ;?>
+                </div>
+                <div class="subscribe-section">
+                    <form  method="POST" action="" id="subscribe-form" >
+                        <div id="subscribe-error"></div>                                        
+                            <input name="email" id="email"  type="text" 
+                            type="email" value="<?php echo(empty($email)? '': $email); ?>" maxlength="50" placeholder="Enter your email" autocomplete="off">
+                            <input name="subscribe" type="submit" id="subscribe-btn" class="button" value="Subscribe">
+                            <br><span class="form-error"> <?php echo(!empty($errors['email']) ? $errors['email'] : ''); ?> </span>
+                            
+                    </form>
+                    <div id="subscribe_response"><p></p></div>
                 </div>
             </div>			
         </main>
@@ -61,15 +73,37 @@ if(!isset($_SESSION)){
             <h3>Contact Vipingo Hills Landscapers</h3>
             
         </aside>
+        
         <footer>
             <?php include __DIR__ .'/../components/footer-bar.php';?>
         </footer>
     </section>
-	<script src="<?php echo BASE_URL ?>resources/js/jquery-3.4.0.min.js"></script>
-	<script src="<?php echo BASE_URL ?>resources/css/google-code-prettify/prettify.js"></script>
-	<script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script>
-	<script src="<?php echo BASE_URL ?>resources/js/subscribe-comments-replies-scripts.js"></script>	
-	<script>window.onload=function(){prettyPrint()}</script>
-	
+	<script src="<?php echo BASE_URL ?>resources/js/jquery-1.7.2.min.js"></script>
+	<!-- <script src="<?php echo BASE_URL ?>resources/js/page-control.js"></script> -->
+	<script src="<?php echo BASE_URL ?>resources/js/subscribe-comments-replies-scripts.js"></script>
+	<script>
+        $('document').ready(function() {
+    window.onresize = function() {
+        if (document.documentElement.clientWidth > 600 || window.innerWidth > 617) {
+            $('#menu-btn').hide();
+            $('#close-btn').hide();
+            $('#menu-list').show();
+        } else {
+            $('#menu-btn').show();
+            $('#menu-list').hide();
+        }
+    }
+    $('#menu-btn').click(function() {
+        $('#menu-list').show();
+        $('#menu-btn').hide();
+        $('#close-btn').show();
+    });
+    $('#close-btn').click(function() {
+        $('#menu-list').hide();
+        $('#close-btn').hide();
+        $('#menu-btn').show();
+    });
+});
+    </script>
 </body>
 </html>

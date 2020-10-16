@@ -184,7 +184,6 @@ h1 {
 
 h2 {
     font-size: 1.75em;
-    margin: 2em 0;
 }
 
 h3,
@@ -194,6 +193,10 @@ h4 {
 
 p {
     text-align: justify;
+}
+
+a {
+    text-decoration: none;
 }
 
 
@@ -230,14 +233,10 @@ header {
     a {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: 1em;
-        text-decoration: none;
         padding: 5px 10px;
-        color: green;
+        color: rgb(14, 133, 93);
         &:hover {
             color: yellowgreen;
-        }
-        @include for-phone-only {
-            color: whitesmoke;
         }
     }
 }
@@ -256,26 +255,28 @@ nav {
         padding: 10px;
         @include for-phone-only {
             padding-top: 0;
+            text-align: left;
         }
         li {
             display: inline;
-            width: 100vw;
+            width: 100%;
             ul {
                 display: none;
             }
             &:active>ul {
                 display: block;
             }
-        }
-        @include for-phone-only {
-            li {
+            @include for-phone-only {
                 display: block;
                 position: relative;
                 left: 0;
                 top: 1em;
-                background-color: rgb(22, 24, 24);
-                color: greenyellow;
-                padding: 1em;
+                background-color: rgb(14, 133, 93);
+                padding: 0.5em;
+                a {
+                    padding-left: 2em;
+                    color: bisque;
+                }
             }
         }
     }
@@ -314,8 +315,11 @@ nav {
         position: absolute;
         top: 0;
         left: 0;
+        padding: 0.25em;
         font-size: 2em;
-        color: #006400;
+        &:hover {
+            background-color: #cbe090;
+        }
     }
 }
 
@@ -326,8 +330,11 @@ nav {
         position: absolute;
         top: 3px;
         left: 3px;
+        padding: 0.25em;
         font-size: 1.5em;
-        color: #006400;
+        &:hover {
+            background-color: #cbe090;
+        }
     }
 }
 
@@ -379,7 +386,7 @@ aside {
     @include for-tablet-landscape-up {
         grid-column: 1;
         grid-row: 3;
-        padding-top: 4em;
+        padding-top: 2em;
     }
 }
 

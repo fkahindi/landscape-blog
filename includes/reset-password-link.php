@@ -10,7 +10,7 @@ key='.$token.'&email='.$email.'&action=subscribe" target="_blank">
 ** */
 
 /* For Local Server */
-$output.='<p><a href="localhost/landscape/forms/reset-password.html.php?
+$output.='<p><a href="localhost/landscape/forms/reset-password.php?
 key='.$token.'&email='.$email.'&action=reset" target="_blank">
 Recover my password</a></p>';	
 /* -------- */	

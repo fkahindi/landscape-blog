@@ -3,7 +3,7 @@ session_start();
 require_once __DIR__ .'/config.php';
 include __DIR__ .'/admin/includes/posts_functions.php';
 include __DIR__ .'/admin/includes/admin_functions.php';
-	$published_post_ids = getThreeLatestPublishedPostIds();
+	$published_post_ids = getFiveLatestPublishedPostIds();
 ?>
 <!DOCTYPE html>
 <html lan="en">
@@ -28,13 +28,13 @@ include __DIR__ .'/admin/includes/admin_functions.php';
 
                 <div class="mySlides fade">
                   <div class="numbertext">2 / 3</div>
-                  <img src="images/stony.JPG" style="width:100%">
+                  <img src="images/stony.jpg" style="width:100%">
                   <div class="text">Our garden beautification is simple and welcoming. We design, plant and maintain the lawn area. </div>
                 </div>
 
                 <div class="mySlides fade">
                   <div class="numbertext">3 / 3</div>
-                  <img src="images/weeding.JPG" style="width:100%">
+                  <img src="images/weeding.jpg" style="width:100%">
                   <div class="text">Uprooting the unwanted grass gives the garden a welcoming and healthy look.</div>
                 </div>
 
@@ -113,6 +113,28 @@ include __DIR__ .'/admin/includes/admin_functions.php';
             }
             }
         });
+    </script>
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 10000); // Change image every 10 seconds
+        }
+
     </script>
     </body>
 </html>

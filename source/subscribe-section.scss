@@ -1,0 +1,51 @@
+@import "partials/visuals";
+.subscribe-section {
+    width: 100%;
+    margin: 2em auto;
+    padding: 2em;
+    @include apply-border(0, none, rgb(28, 88, 68), 0);
+    background-color: rgb(244, 244, 244);
+}
+
+form {
+    padding: 1em auto;
+    input,
+    input[type="submit"] {
+        display: inline;
+        font-size: 1em;
+    }
+    input {
+        padding: 0.55em;
+    }
+    input[type="submit"] {
+        cursor: pointer;
+        padding: 0.65em;
+        background-color: #006400;
+        color: white;
+        @include apply-border(0, none, green);
+        &:hover {
+            background-color: green;
+            color: yellow;
+        }
+    }
+}
+
+.form-error {
+    color: #D83D5A;
+    input {
+        border: 1px solid #D83D5A;
+        background: rgb(256, 256, 0);
+        background: rgba(256, 256, 0, 0.3);
+    }
+}
+
+.form-success {
+    color: #17804f;
+    input {
+        border: 1px solid #17804f;
+    }
+}
+
+.hidden {
+    display: none;
+}

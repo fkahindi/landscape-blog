@@ -33,11 +33,11 @@ function getAllPublishedPostIds(){
 		return null;
 	}	
 }
-/* Get 3 latest published posts in the posts table */
-function getThreeLatestPublishedPostIds(){
+/* Get 5 latest published posts in the posts table */
+function getFiveLatestPublishedPostIds(){
 	global $conn;
 	
-	$sql ="SELECT post_id FROM `posts` WHERE published =1 ORDER BY created_at DESC LIMIT 3";
+	$sql ="SELECT post_id FROM `posts` WHERE published =1 ORDER BY created_at DESC LIMIT 5";
 	$result = mysqli_query($conn, $sql);
 	if($result){
 		$published_post_id = mysqli_fetch_all($result, MYSQLI_ASSOC);

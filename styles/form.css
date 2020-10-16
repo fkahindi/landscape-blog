@@ -14,12 +14,12 @@
 .form-success span {
   width: 80%;
   margin: 3px 0;
-  color: #32CD32; }
+  color: #17804f; }
 .form-success input {
-  border: 1px solid #32CD32; }
+  border: 1px solid #17804f; }
 
 .success {
-  color: #32CD32; }
+  color: #17804f; }
 
 .red {
   color: #ff0000; }
@@ -50,12 +50,13 @@ form {
     display: block;
     margin-top: 1em; }
   form input {
-    display: block;
     padding: 0.35em 5px; }
     @media (min-width: 600px) {
       form input {
         padding: 0.45em 7px; } }
-  form input, form textarea {
+  form input,
+  form textarea {
+    display: block;
     width: 90%;
     margin: 3px 0;
     font-size: inherit;

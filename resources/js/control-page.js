@@ -13,7 +13,6 @@ $('document').ready(function() {
         $('#menu-list').show();
         $('#menu-btn').hide();
         $('#close-btn').show();
-        alert('You click');
     });
     $('#close-btn').click(function() {
         $('#menu-list').hide();
