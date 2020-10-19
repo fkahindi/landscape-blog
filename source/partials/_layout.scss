@@ -1,38 +1,59 @@
 //Layout using a mixture of grid and flex with media queries
-@mixin grid-wrapper{
-    display:grid;
-    
-    grid-template-rows:3em 3em auto auto auto;
-    grid-gap:1em 10px;
-    justify-content:center;
-    @include for-tablet-portrait-up{
-        grid-template-columns:40%repeat(4,1fr);
+@mixin grid-wrapper {
+    display: grid;
+    grid-template-rows: 3em 3em auto auto auto;
+    grid-gap: 1em 10px;
+    justify-content: center;
+    @include for-tablet-portrait-up {
+        grid-template-columns: 40%repeat(4, 1fr);
     }
-    @include for-desktop-up{
-        grid-template-columns:30%repeat(4,1fr);
+    @include for-desktop-up {
+        grid-template-columns: 30%repeat(4, 1fr);
     }
 }
-@mixin flex-wrapper{
-    display: -ms-flexbox; /* IE10 */
-    display:-webkit-flex;
+
+@mixin flex-wrapper {
+    display: -ms-flexbox;
+    /* IE10 */
+    display: -webkit-flex;
     display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-flow:column;
-    justify-content:center;
-    @include for-tablet-portrait-up{
-        flex-flow:row wrap;
-        justify-content:space-around;
+    -ms-flex-wrap: wrap;
+    /* IE10 */
+    flex-flow: column;
+    justify-content: center;
+    @include for-tablet-portrait-up {
+        flex-flow: row wrap;
+        justify-content: space-around;
     }
 }
+
 //Media queries setup in mixins
 @mixin for-phone-only {
-  @media (max-width: 599px) { @content; }
-}@mixin for-tablet-portrait-up {
-  @media (min-width: 600px) { @content; }
-}@mixin for-tablet-landscape-up {
-  @media (min-width: 768px) { @content; }
-}@mixin for-desktop-up {
-  @media (min-width: 992px) { @content; }
-}@mixin for-big-desktop-up {
-  @media (min-width: 1200px) { @content; }
+    @media (max-width: 599px) {
+        @content;
+    }
+}
+
+@mixin for-tablet-portrait-up {
+    @media (min-width: 600px) {
+        @content;
+    }
+}
+
+@mixin for-tablet-landscape-up {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin for-desktop-up {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin for-big-desktop-up {
+    @media (min-width: 1200px) {
+        @content;
+    }
 }

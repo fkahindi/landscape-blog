@@ -1,0 +1,3 @@
+<h3>Chilango Kiti</h3>
+<img src="<?php echo BASE_URL ?>images/chilango.png" loading="lazy" alt="profile pic" width="120px"  class="profile-pic"/>
+<p>Interests: researching, watching movies,photography, swimming. About me: Having worked at vipingo Ridge Golf Course for years and having been trained by professional Greenkeepers from Germany and Ireland, I acquired requisite skills on golf course establishment and maintenance. My passion for landscaping has made me the work enhancing the beauty of the Universe. </p>

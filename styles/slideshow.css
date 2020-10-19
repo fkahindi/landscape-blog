@@ -2,8 +2,8 @@
 .slideshow-container {
   max-width: 100%;
   position: relative;
-  margin: auto;
-  z-index: -1; }
+  z-index: 0;
+  margin: auto; }
   .slideshow-container .mySlides {
     display: none; }
   .slideshow-container img {
@@ -12,6 +12,7 @@
   .slideshow-container .next {
     cursor: pointer;
     position: absolute;
+    z-index: 1;
     top: 50%;
     width: auto;
     padding: 16px;

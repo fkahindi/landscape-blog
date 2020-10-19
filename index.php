@@ -22,21 +22,22 @@ include __DIR__ .'/admin/includes/admin_functions.php';
             <div class="slideshow-container">
                 <div class="mySlides fade">
                   <div class="numbertext">1 / 3</div>
-                  <img src="images/landscape.jpg" style="width:100%">
+                  <img src="images/landscape.jpg" style="width:100%;height:auto">
                   <div class="text">There are many advantages to run a home based care with a landscaping service.</div>
                 </div>
 
                 <div class="mySlides fade">
                   <div class="numbertext">2 / 3</div>
-                  <img src="images/stony.jpg" style="width:100%">
+                  <img src="images/stony.jpg" style="width:100%;height:auto">
                   <div class="text">Our garden beautification is simple and welcoming. We design, plant and maintain the lawn area. </div>
                 </div>
 
                 <div class="mySlides fade">
                   <div class="numbertext">3 / 3</div>
-                  <img src="images/weeding.jpg" style="width:100%">
+                  <img src="images/weeding.jpg" style="width:100%;height:auto">
                   <div class="text">Uprooting the unwanted grass gives the garden a welcoming and healthy look.</div>
                 </div>
+               
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
@@ -65,18 +66,11 @@ include __DIR__ .'/admin/includes/admin_functions.php';
         </main>
         <aside>
             <div class="services">
-                <h3>Services</h3>
-                <a href="#">&#129174; Grass planting</a>
-                <a href="#">&#129174; Lawn mowing and maintenance</a>
-                <a href="#">&#129174; Weeding and flower beds</a>
-                <a href="#">&#129174; Fertilizing and pest control </a>
-                <a href="#">&#129174; Trees and flowers supplies</a>
+              <?php include __DIR__ . '/components/services-panel.php' ?>
+                
             </div>
             <div class="profile">
-           <h3>Chilango Kiti</h3>
-            <img src="<?php echo BASE_URL ?>images/chilango.png" loading="lazy" alt="profile pic" width="100px" height="120px" class="profile-pic"/>
-            <p>Interests: researching, watching movies,photography, swimming.
-            About me: Having worked at vipingo Ridge Golf Course for years and having been trained by professional Greenkeepers from Germany and Ireland, I acquired requisite skills on golf course establishment and maintenance.  My passion for landscaping has made me the work enhancing the beauty of the Universe. </p>
+              <?php include __DIR__ . '/components/chilango-profile.php'?>
             </div>
             <h3>Contact Vipingo Hills Landscapers</h3>
             
@@ -87,22 +81,21 @@ include __DIR__ .'/admin/includes/admin_functions.php';
     </section>
     <script src="resources/js/jquery-1.7.2.min.js"></script>
     <script src="resources/js/control-page.js"></script>
-    <script src="resources/js/slideshow.js"></script>
     <script>
     /* JS for pic slideshow */
        var slideIndex = 1;
         var myTimer;
         var slideshowContainer;
         window.addEventListener("load",function() {
-            showSlides(slideIndex);
-            myTimer = setInterval(function(){plusSlides(1)}, 4000);
+          showSlides(slideIndex);
+          myTimer = setInterval(function(){plusSlides(1)}, 4000);
           
-            slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
+          slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
           
-             slideshowContainer = document.getElementsByClassName('slideshow-container')[0];
+          slideshowContainer = document.getElementsByClassName('slideshow-container')[0];
           
-            slideshowContainer.addEventListener('mouseenter', pause)
-            slideshowContainer.addEventListener('mouseleave', resume)
+          slideshowContainer.addEventListener('mouseenter', pause)
+          slideshowContainer.addEventListener('mouseleave', resume)
         })
 
         function plusSlides(n){

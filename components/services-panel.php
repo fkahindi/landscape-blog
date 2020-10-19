@@ -1,0 +1,9 @@
+<a href="#">&#129174; Grass planting</a>
+<a href="#">&#129174; Lawn mowing and maintenance</a>
+<a href="#">&#129174; Weeding and flower beds</a>
+<a href="#">&#129174; Fertilizing and pest control </a>
+<a href="#">&#129174; Trees and flowers supplies</a>
+<div class="top-left"></div>
+<div class="top-right"></div>
+<div class="bottom-left"></div>
+<div class="bottom-right"></div>

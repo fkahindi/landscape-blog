@@ -25,6 +25,6 @@ $mail->AddAddress($email_to);
 if(!$mail->Send()){
 	$form_error = 'Oops! Sending error has occured.'. $mail->ErrorInfo;
 }else{
-   $_SESSION['message_success'] = "&#128077; Thank you for reaching to us. We will get back to you the soonest.";
+   $_SESSION['message_success'] = "Thank you for reaching to us. We will get back to you the soonest.";
     header('Location: ../templates/thank-you.html.php');
 }

@@ -6,5 +6,5 @@
 </header>
 <div class="logobar">
 <img src="<?php echo BASE_URL ?>resources/icons/logo.png" loading="lazy" alt="logo" style="max-width:152px;"/>
-<a href="<?php echo BASE_URL ?>forms/services-form.php"><button><strong>Hire services</strong></button></a>
+<a href="<?php echo BASE_URL ?>forms/services-form.php"><button><strong>Ask for Services</strong></button></a>
 </div>
